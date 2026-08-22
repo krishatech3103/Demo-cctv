@@ -308,6 +308,9 @@ img {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
+  padding: 1.5rem;
+  box-sizing: border-box;
   transition: opacity 0.6s ease, visibility 0.6s ease;
 }
 
@@ -362,6 +365,11 @@ img {
   letter-spacing: 0.15em;
   color: var(--text-primary);
   font-weight: 800;
+  text-align: center;
+  width: 100%;
+  max-width: 90vw;
+  box-sizing: border-box;
+  padding-left: 0.15em; /* Offsets right letter-spacing for perfect centering */
 }
 
 .preloader-status {
@@ -370,6 +378,10 @@ img {
   margin-top: 0.5rem;
   font-family: var(--font-tech);
   letter-spacing: 0.05em;
+  text-align: center;
+  width: 100%;
+  max-width: 90vw;
+  box-sizing: border-box;
 }
 
 .preloader-bar-wrapper {
@@ -429,23 +441,23 @@ img {
 .logo {
   display: flex;
   align-items: center;
-  gap: 0.8rem;
+  gap: 0.6rem;
   font-family: var(--font-heading);
-  font-size: 1.5rem;
+  font-size: 1.35rem;
   font-weight: 800;
   color: var(--text-primary);
 }
 
 .logo-icon {
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
   background: var(--gradient-cyber);
   display: flex;
   align-items: center;
   justify-content: center;
   color: #000;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   box-shadow: var(--shadow-glow);
   transition: var(--transition);
 }
@@ -474,12 +486,12 @@ img {
 .nav-menu {
   display: flex;
   align-items: center;
-  gap: 2.2rem;
+  gap: 1.8rem;
   list-style: none;
 }
 
 .nav-link {
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: 600;
   color: var(--text-secondary);
   transition: var(--transition);
@@ -510,12 +522,12 @@ img {
 .header-actions {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.8rem;
 }
 
 .theme-toggle-btn {
-  width: 42px;
-  height: 42px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   background: var(--bg-glass);
   border: 1px solid var(--border-color);
@@ -523,7 +535,7 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   transition: var(--transition);
 }
 
@@ -538,11 +550,11 @@ img {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.6rem;
-  padding: 0.8rem 1.8rem;
+  gap: 0.5rem;
+  padding: 0.7rem 1.5rem;
   border-radius: var(--radius-full);
   font-weight: 700;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   transition: var(--transition);
   white-space: nowrap;
   position: relative;
@@ -603,7 +615,7 @@ img {
 
 .mobile-nav-toggle {
   display: none;
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   color: var(--text-primary);
 }
 
@@ -618,10 +630,11 @@ img {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 2.2rem;
+  gap: 1.4rem;
   opacity: 0;
   pointer-events: none;
   transition: var(--transition);
+  padding: 2rem;
 }
 
 .mobile-drawer.active {
@@ -630,8 +643,11 @@ img {
 }
 
 .mobile-drawer .nav-link {
-  font-size: 1.6rem;
-  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-family: var(--font-body);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  padding: 0.4rem 1.2rem;
 }
 
 /* --------------------------------------------------------------------------
@@ -1824,8 +1840,16 @@ textarea.form-control {
 }
 
 /* --------------------------------------------------------------------------
-   13. COMPREHENSIVE RESPONSIVENESS & TOUCH OPTIMIZATIONS
+   13. COMPREHENSIVE RESPONSIVENESS & MOBILE OVERFLOW CONTAINMENT
    -------------------------------------------------------------------------- */
+
+/* Global Mobile Overflow Defense */
+html, body {
+  width: 100% !important;
+  max-width: 100vw !important;
+  overflow-x: hidden !important;
+  position: relative;
+}
 
 /* Touch Device Optimization: Disable 3D tilt jitter on touch scrolling */
 @media (hover: none) {
@@ -1840,17 +1864,17 @@ textarea.form-control {
   .contact-wrapper, 
   .estimator-grid {
     grid-template-columns: 1fr;
-    gap: 3rem;
+    gap: 2.5rem;
   }
 
   .services-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 1.8rem;
+    gap: 1.5rem;
   }
 
   .stats-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
+    gap: 1.2rem;
   }
 
   .footer-grid {
@@ -1865,7 +1889,7 @@ textarea.form-control {
   }
 }
 
-/* Tablets & Mobile Landscape (768px and below) */
+/* Tablets & Mobile Devices (768px and below) */
 @media (max-width: 768px) {
   .nav-menu { 
     display: none; 
@@ -1883,39 +1907,55 @@ textarea.form-control {
     height: 44px;
   }
 
-  .estimator-container,
-  .estimator-grid,
-  .estimator-form-side,
-  .estimator-summary-card {
+  .container {
+    padding: 0 1rem !important;
     width: 100% !important;
-    max-width: 100% !important;
+    max-width: 100vw !important;
     box-sizing: border-box !important;
   }
 
   .section {
-    padding: 4.5rem 0;
+    padding: 4rem 0;
+    width: 100% !important;
+    max-width: 100vw !important;
+    overflow: hidden !important;
   }
 
+  .estimator-container,
+  .estimator-grid,
+  .estimator-form-side,
+  .estimator-summary-card,
+  .contact-form-card,
+  .simulator-wrapper,
+  .service-card,
+  .stat-card,
+  .hero-card-frame {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+    padding: 1.6rem 1.1rem !important;
+  }
 
   .hero {
     min-height: auto;
-    padding-top: 7rem;
-    padding-bottom: 3.5rem;
+    padding-top: 6.5rem;
+    padding-bottom: 3rem;
   }
 
   .hero-title { 
-    font-size: 2.5rem; 
+    font-size: 2.2rem; 
   }
 
   .hero-description {
-    font-size: 1.05rem;
-    margin-bottom: 1.8rem;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
   }
 
   .hero-cta-group {
     flex-direction: column;
     align-items: stretch;
-    gap: 1rem;
+    gap: 0.8rem;
   }
 
   .hero-cta-group .btn {
@@ -1924,7 +1964,8 @@ textarea.form-control {
   }
 
   .hero-trust-list {
-    gap: 1rem;
+    gap: 0.8rem;
+    flex-wrap: wrap;
   }
 
   .hero-float-badge {
@@ -1934,19 +1975,42 @@ textarea.form-control {
     margin-top: 1.2rem;
     width: 100%;
     justify-content: center;
+    box-sizing: border-box;
   }
 
   .section-title { 
-    font-size: 2rem; 
+    font-size: 1.85rem; 
   }
 
   .section-subtitle {
-    font-size: 1rem;
-    margin-bottom: 2.5rem;
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+  }
+
+  .form-group-title {
+    font-size: 1.05rem;
+    flex-wrap: wrap;
+    word-break: break-word;
+    max-width: 100%;
+  }
+
+  .range-slider-wrapper {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  input[type="range"] {
+    display: block;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    margin: 0;
+    padding: 0;
   }
 
   .stat-number { 
-    font-size: 2.5rem; 
+    font-size: 2.2rem; 
   }
 
   .services-grid { 
@@ -1956,14 +2020,20 @@ textarea.form-control {
   .option-cards-grid, 
   .checkbox-grid { 
     grid-template-columns: 1fr; 
+    gap: 0.8rem;
   }
 
-  .estimator-container {
-    padding: 1.8rem 1.2rem;
+  .opt-card, 
+  .check-item {
+    padding: 0.9rem 1rem;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .sim-viewport-frame { 
-    height: 320px; 
+    height: 300px; 
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .sim-controls-top { 
@@ -1988,9 +2058,20 @@ textarea.form-control {
     flex-wrap: wrap;
   }
 
+  .summary-row {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: 0.88rem;
+  }
+
+  .total-price-value {
+    font-size: 2.2rem;
+    word-break: break-all;
+  }
+
   .footer-grid { 
     grid-template-columns: 1fr; 
-    gap: 2.2rem;
+    gap: 2rem;
   }
 
   .krishatech-banner {
@@ -1999,62 +2080,58 @@ textarea.form-control {
     align-items: center;
     padding: 1.2rem 1rem;
   }
-
-  .contact-form-card {
-    padding: 1.8rem 1.2rem;
-  }
 }
 
 /* Mobile Devices (576px and below) */
 @media (max-width: 576px) {
   .container {
-    padding: 0 1.2rem;
+    padding: 0 0.8rem !important;
   }
 
   .hero-title { 
-    font-size: 2.1rem; 
+    font-size: 1.95rem; 
   }
 
   .section-title { 
-    font-size: 1.75rem; 
+    font-size: 1.65rem; 
   }
 
   .stats-grid {
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: 0.8rem;
   }
 
   .stat-card {
-    padding: 1.5rem 1rem;
+    padding: 1.2rem 0.9rem !important;
   }
 
   .stat-number {
-    font-size: 2.2rem;
+    font-size: 2rem;
   }
 
   .sim-viewport-frame {
-    height: 280px;
+    height: 260px;
   }
 
   .sim-hud-top, 
   .sim-hud-bottom {
-    font-size: 0.72rem;
-    left: 12px;
-    right: 12px;
+    font-size: 0.68rem;
+    left: 8px;
+    right: 8px;
   }
 
   .sim-ai-box {
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
   }
 
   .sim-ai-label {
-    font-size: 0.68rem;
+    font-size: 0.62rem;
   }
 
   .form-control {
     font-size: 16px; /* Prevents auto-zoom on mobile safari */
-    padding: 0.85rem 1rem;
+    padding: 0.8rem 0.9rem;
   }
 
   .footer-bottom {
@@ -2064,28 +2141,28 @@ textarea.form-control {
   }
 
   .floating-actions {
-    bottom: 1.4rem;
-    right: 1.2rem;
-    gap: 0.8rem;
+    bottom: 1.2rem;
+    right: 1rem;
+    gap: 0.7rem;
   }
 
   .float-btn {
-    width: 50px;
-    height: 50px;
-    font-size: 1.4rem;
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
   }
 }
 
 /* Extra Small Mobile (400px and below) */
 @media (max-width: 400px) {
   .logo-text {
-    font-size: 1.2rem;
+    font-size: 1.15rem;
   }
 
   .logo-icon {
-    width: 36px;
-    height: 36px;
-    font-size: 1.2rem;
+    width: 34px;
+    height: 34px;
+    font-size: 1.1rem;
   }
 
   .logo-badge {
@@ -2093,12 +2170,13 @@ textarea.form-control {
   }
 
   .hero-title {
-    font-size: 1.85rem;
+    font-size: 1.75rem;
   }
 
   .section-tag {
-    font-size: 0.78rem;
-    padding: 0.3rem 0.9rem;
+    font-size: 0.75rem;
+    padding: 0.3rem 0.8rem;
   }
 }
+
 
