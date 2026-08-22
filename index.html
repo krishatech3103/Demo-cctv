@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SmartView CCTV & Security Systems - High-performance 4K Surveillance, AI Facial Recognition, Biometrics & Cash Counting Machines. Demo operated by Krisha Tech (krishatech.in).">
+  <meta name="keywords" content="CCTV Camera Installation, Security Systems, Smart View CCTV, Biometric Access, Note Counting Machine, Krisha Tech, krishatech.in">
+  <meta name="author" content="Krisha Tech (krishatech.in)">
+
+  <title>SmartView CCTV & Security Solutions | Powered by Krisha Tech</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Remix Icons CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+
+  <!-- Custom Design System CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Dynamic Cyber Particle Background Canvas -->
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- Preloader Screen -->
+  <div id="preloader">
+    <div class="preloader-radar">
+      <i class="ri-radar-line preloader-center-icon"></i>
+    </div>
+    <div class="preloader-text">SMARTVIEW SECURITY</div>
+    <div class="preloader-status">Initializing System Core...</div>
+    <div class="preloader-bar-wrapper">
+      <div class="preloader-bar"></div>
+    </div>
+  </div>
+
+  <!-- Header Navigation -->
+  <header class="header">
+    <div class="container header-container">
+      <a href="#" class="logo">
+        <div class="logo-icon">
+          <i class="ri-webcam-line"></i>
+        </div>
+        <div class="logo-text">
+          Smart<span>View</span>
+          <span class="logo-badge">KRISHATECH</span>
+        </div>
+      </a>
+
+      <ul class="nav-menu">
+        <li><a href="#hero" class="nav-link active">Home</a></li>
+        <li><a href="#simulator" class="nav-link">Live Demo</a></li>
+        <li><a href="#services" class="nav-link">Services</a></li>
+        <li><a href="#estimator" class="nav-link">Price Calculator</a></li>
+        <li><a href="#features" class="nav-link">AI Features</a></li>
+        <li><a href="#faq" class="nav-link">FAQ</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+
+      <div class="header-actions">
+        <button id="theme-toggle" class="theme-toggle-btn" title="Toggle Light/Dark Theme">
+          <i class="ri-moon-clear-line"></i>
+        </button>
+
+        <a href="#estimator" class="btn btn-primary">
+          <i class="ri-calculator-line"></i> Instant Quote
+        </a>
+
+        <button class="mobile-nav-toggle" aria-label="Toggle Navigation">
+          <i class="ri-menu-3-line"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-drawer">
+    <a href="#hero" class="nav-link">Home</a>
+    <a href="#simulator" class="nav-link">Live CCTV Demo</a>
+    <a href="#services" class="nav-link">Services & Products</a>
+    <a href="#estimator" class="nav-link">Price Calculator</a>
+    <a href="#features" class="nav-link">AI Features</a>
+    <a href="#faq" class="nav-link">FAQ</a>
+    <a href="#contact" class="nav-link">Contact Us</a>
+    <a href="https://wa.me/919028682001" target="_blank" class="btn btn-whatsapp">
+      <i class="ri-whatsapp-line"></i> WhatsApp Inquiry
+    </a>
+  </div>
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="hero-badge-wrap">
+            <span class="pulse-dot"></span>
+            <span class="hero-badge-text">Powered & Developed by <span>krishatech.in</span></span>
+          </div>
+
+          <h1 class="hero-title">
+            Next-Gen 4K CCTV & <span>Smart Security</span> Systems
+          </h1>
+
+          <p class="hero-description">
+            Complete surveillance solutions with 24/7 AI motion tracking, color night vision, biometric attendance, and cash processing systems for homes & businesses.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#simulator" class="btn btn-primary">
+              <i class="ri-eye-line"></i> Launch Live HUD Demo
+            </a>
+            <a href="tel:+919028682001" class="btn btn-outline">
+              <i class="ri-phone-line"></i> Call +91 9028682001
+            </a>
+          </div>
+
+          <div class="hero-trust-list">
+            <div class="trust-item">
+              <i class="ri-checkbox-circle-fill"></i> 4K Ultra HD
+            </div>
+            <div class="trust-item">
+              <i class="ri-checkbox-circle-fill"></i> Full Color Night
+            </div>
+            <div class="trust-item">
+              <i class="ri-checkbox-circle-fill"></i> Mobile Remote App
+            </div>
+            <div class="trust-item">
+              <i class="ri-checkbox-circle-fill"></i> AMC Maintenance
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-card-frame">
+            <div class="hero-card-header">
+              <div class="rec-badge">
+                <span class="rec-dot"></span> REC • LIVE STREAM
+              </div>
+              <div class="cam-meta">CAM_01 // 3840x2160 @60FPS</div>
+            </div>
+
+            <div class="hero-mock-feed">
+              <div class="hud-grid"></div>
+              <div class="hud-scanline"></div>
+              <div class="hud-target-box">
+                <span class="hud-target-tag">AI RECOGNITION</span>
+              </div>
+              <div class="hero-feed-center">
+                <i class="ri-shield-keyhole-line"></i>
+                <div class="hero-feed-status">SMARTVIEW SECURITY MATRIX</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-float-badge">
+            <div class="float-icon">
+              <i class="ri-shield-check-line"></i>
+            </div>
+            <div class="float-info">
+              <h5>1,500+ Secured Sites</h5>
+              <p>Certified Installation Team</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Counter Section -->
+  <section class="stats-section">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number" data-target="1500" data-suffix="+">0</div>
+          <div class="stat-label">CCTV Cameras Installed</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" data-target="350" data-suffix="+">0</div>
+          <div class="stat-label">Commercial Clients</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" data-target="99" data-suffix=".9%">0</div>
+          <div class="stat-label">System Uptime</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" data-target="24" data-suffix="/7">0</div>
+          <div class="stat-label">Monitoring & AMC Support</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Live CCTV Simulator Section -->
+  <section id="simulator" class="section">
+    <div class="container">
+      <div class="text-center">
+        <div class="section-tag"><i class="ri-cpu-line"></i> Interactive Technology</div>
+        <h2 class="section-title">Experience Live <span>Surveillance HUD</span></h2>
+        <p class="section-subtitle">
+          Test drive our 4K camera optics, night vision filters, and AI target identification simulator in real time.
+        </p>
+      </div>
+
+      <div class="simulator-wrapper">
+        <div class="sim-controls-top">
+          <div class="sim-feed-tabs">
+            <button class="sim-feed-btn active" data-feed="cam1">Cam 01: Entrance</button>
+            <button class="sim-feed-btn" data-feed="cam2">Cam 02: Warehouse</button>
+            <button class="sim-feed-btn" data-feed="cam3">Cam 03: Cash Counter</button>
+            <button class="sim-feed-btn" data-feed="cam4">Cam 04: Perimeter</button>
+          </div>
+
+          <div class="sim-mode-toggle">
+            <button class="mode-btn active" data-mode="normal"><i class="ri-sun-line"></i> 4K HD Color</button>
+            <button class="mode-btn" data-mode="night"><i class="ri-moon-line"></i> IR Night Vision</button>
+            <button class="mode-btn" data-mode="thermal"><i class="ri-temp-hot-line"></i> Thermal IR</button>
+          </div>
+        </div>
+
+        <div class="sim-viewport-frame" id="sim-viewport">
+          <div class="sim-screen-content" style="background-image: url('https://images.unsplash.com/photo-1557597774-9d273605dfa9?q=80&w=1200&auto=format&fit=crop');">
+            <div class="sim-hud-top">
+              <div id="sim-cam-name">CAM 01 - MAIN ENTRANCE [4K]</div>
+              <div id="sim-timestamp">2026-08-22 15:30:00</div>
+            </div>
+
+            <div class="sim-ai-box" id="sim-ai-box" style="top: 35%; left: 45%;">
+              <span class="sim-ai-label">TARGET: HUMAN [99.8%]</span>
+            </div>
+
+            <div class="sim-hud-bottom">
+              <div>BITRATE: 8192 kbps</div>
+              <div>ENCRYPTION: AES-256 GCM</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services & Catalog Showcase Section -->
+  <section id="services" class="section">
+    <div class="container">
+      <div class="text-center">
+        <div class="section-tag"><i class="ri-store-2-line"></i> Our Offerings</div>
+        <h2 class="section-title">Security & <span>IT Solutions</span> Catalog</h2>
+        <p class="section-subtitle">
+          Comprehensive sales, installation, and maintenance services for security cameras, attendance scanners, cash counters, and IT networking.
+        </p>
+
+        <div class="filter-tabs">
+          <button class="filter-btn active" data-filter="all">All Products</button>
+          <button class="filter-btn" data-filter="cctv">CCTV Cameras</button>
+          <button class="filter-btn" data-filter="biometric">Biometrics</button>
+          <button class="filter-btn" data-filter="cash">Cash Processing</button>
+          <button class="filter-btn" data-filter="alarm">Burglar Alarms</button>
+          <button class="filter-btn" data-filter="it">PC & IT Sales</button>
+        </div>
+      </div>
+
+      <div class="services-grid">
+        <!-- Card 1 -->
+        <div class="service-card" data-category="cctv">
+          <div class="service-icon"><i class="ri-video-line"></i></div>
+          <h3 class="service-title">4K Ultra HD IP Cameras</h3>
+          <p class="service-desc">
+            High-definition weatherproof dome and bullet cameras equipped with ColorHunter full-color night vision, audio recording, and AI motion alerts.
+          </p>
+          <ul class="service-specs">
+            <li><i class="ri-check-line"></i> 8MP 4K Ultra HD Sensor</li>
+            <li><i class="ri-check-line"></i> 30m Smart IR Night Vision</li>
+            <li><i class="ri-check-line"></i> H.265+ Compression Tech</li>
+          </ul>
+          <a href="#estimator" class="btn btn-outline">Configure Package</a>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="service-card" data-category="biometric">
+          <div class="service-icon"><i class="ri-fingerprint-line"></i></div>
+          <h3 class="service-title">Biometric Access & Attendance</h3>
+          <p class="service-desc">
+            Facial recognition, fingerprint scanners, and RFID card access locks for automated staff attendance and secure door access control.
+          </p>
+          <ul class="service-specs">
+            <li><i class="ri-check-line"></i> 0.2s High-Speed Recognition</li>
+            <li><i class="ri-check-line"></i> Cloud Payroll Software Sync</li>
+            <li><i class="ri-check-line"></i> Electromagnetic Lock Control</li>
+          </ul>
+          <a href="#estimator" class="btn btn-outline">Configure Package</a>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="service-card" data-category="cash">
+          <div class="service-icon"><i class="ri-money-dollar-box-line"></i></div>
+          <h3 class="service-title">Note Counting Machines</h3>
+          <p class="service-desc">
+            Heavy-duty currency counting machines with ultraviolet (UV), magnetic (MG), and infrared (IR) counterfeit currency detection.
+          </p>
+          <ul class="service-specs">
+            <li><i class="ri-check-line"></i> Fake Note Detection Warning</li>
+            <li><i class="ri-check-line"></i> 1,000 Notes / Min Speed</li>
+            <li><i class="ri-check-line"></i> External Customer Display</li>
+          </ul>
+          <a href="#contact" class="btn btn-outline">Inquire Price</a>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="service-card" data-category="alarm">
+          <div class="service-icon"><i class="ri-alarm-warning-line"></i></div>
+          <h3 class="service-title">Smart Burglar Alarm Systems</h3>
+          <p class="service-desc">
+            Infrared motion sensors, door contact switches, and loud sirens connected to automatic phone dialer systems for intrusion alerts.
+          </p>
+          <ul class="service-specs">
+            <li><i class="ri-check-line"></i> Wireless & Wired Sensors</li>
+            <li><i class="ri-check-line"></i> Instant GSM Call & SMS Alerts</li>
+            <li><i class="ri-check-line"></i> Battery Backup Power</li>
+          </ul>
+          <a href="#contact" class="btn btn-outline">Inquire Price</a>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="service-card" data-category="it">
+          <div class="service-icon"><i class="ri-computer-line"></i></div>
+          <h3 class="service-title">Computer & Server Setup</h3>
+          <p class="service-desc">
+            Desktop computer sales, server rack assembly, structured Cat6 network cabling, and high-speed Wi-Fi router deployment.
+          </p>
+          <ul class="service-specs">
+            <li><i class="ri-check-line"></i> Custom PC Build & Assembly</li>
+            <li><i class="ri-check-line"></i> Network Switch & Router Config</li>
+            <li><i class="ri-check-line"></i> On-Site Repair Service</li>
+          </ul>
+          <a href="#contact" class="btn btn-outline">Inquire Price</a>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="service-card" data-category="cctv">
+          <div class="service-icon"><i class="ri-tools-line"></i></div>
+          <h3 class="service-title">CCTV Annual Maintenance (AMC)</h3>
+          <p class="service-desc">
+            Hassle-free Annual Maintenance Contracts (AMC) including quarterly health checks, lens cleaning, DVR hard disk backup audits, and priority repair support.
+          </p>
+          <ul class="service-specs">
+            <li><i class="ri-check-line"></i> 24-Hour Emergency Dispatch</li>
+            <li><i class="ri-check-line"></i> Free Standby DVR/Camera Support</li>
+            <li><i class="ri-check-line"></i> Quarterly Maintenance Visits</li>
+          </ul>
+          <a href="#contact" class="btn btn-outline">Get AMC Quote</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive CCTV Price & Package Estimator Section -->
+  <section id="estimator" class="section">
+    <div class="container">
+      <div class="text-center">
+        <div class="section-tag"><i class="ri-calculator-line"></i> Instant Price Calculator</div>
+        <h2 class="section-title">Customize Your <span>Security Package</span></h2>
+        <p class="section-subtitle">
+          Select your property requirements to get a live estimated quote instantly and submit your configuration directly to WhatsApp.
+        </p>
+      </div>
+
+      <div class="estimator-container">
+        <div class="estimator-grid">
+          <div class="estimator-form-side">
+            <!-- Step 1: Property Type -->
+            <div class="form-group-title">
+              <i class="ri-building-line" style="color: var(--primary-cyan);"></i> 1. Select Property Type
+            </div>
+            <div class="option-cards-grid">
+              <div class="opt-card opt-property selected" data-prop-name="Shop / Retail">
+                <div class="opt-radio"></div>
+                <div class="opt-text">
+                  <h6>Retail Shop / Store</h6>
+                  <p>Counter & Entrance focus</p>
+                </div>
+              </div>
+              <div class="opt-card opt-property" data-prop-name="Home / Villa">
+                <div class="opt-radio"></div>
+                <div class="opt-text">
+                  <h6>Home / Apartment</h6>
+                  <p>Gate, Hall & Garden focus</p>
+                </div>
+              </div>
+              <div class="opt-card opt-property" data-prop-name="Office / Corporate">
+                <div class="opt-radio"></div>
+                <div class="opt-text">
+                  <h6>Corporate Office</h6>
+                  <p>Multi-room & Staff focus</p>
+                </div>
+              </div>
+              <div class="opt-card opt-property" data-prop-name="Industrial / Warehouse">
+                <div class="opt-radio"></div>
+                <div class="opt-text">
+                  <h6>Warehouse / Factory</h6>
+                  <p>Long range perimeter focus</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 2: Camera Count Slider -->
+            <div class="form-group-title">
+              <i class="ri-camera-lens-line" style="color: var(--primary-cyan);"></i> 2. Number of CCTV Cameras
+            </div>
+            <div class="range-slider-wrapper">
+              <div class="range-header">
+                <span class="range-label" style="color: var(--text-secondary);">Channels:</span>
+                <span class="range-val" id="camera-count-val">4 Cameras</span>
+              </div>
+              <input type="range" id="camera-range" min="2" max="32" value="4" step="2">
+            </div>
+
+            <!-- Step 3: Camera Optics -->
+            <div class="form-group-title">
+              <i class="ri-eye-line" style="color: var(--primary-cyan);"></i> 3. Camera Resolution & Lens
+            </div>
+            <div class="option-cards-grid">
+              <div class="opt-card opt-res" data-res-name="1080p Full HD" data-multiplier="1.0">
+                <div class="opt-radio"></div>
+                <div class="opt-text">
+                  <h6>1080p Full HD</h6>
+                  <p>Standard HD clarity</p>
+                </div>
+              </div>
+              <div class="opt-card opt-res selected" data-res-name="4K Ultra HD" data-multiplier="1.25">
+                <div class="opt-radio"></div>
+                <div class="opt-text">
+                  <h6>4K Ultra HD</h6>
+                  <p>High precision zoom</p>
+                </div>
+              </div>
+              <div class="opt-card opt-res" data-res-name="4K Color Night Vision" data-multiplier="1.5">
+                <div class="opt-radio"></div>
+                <div class="opt-text">
+                  <h6>4K Color Hunter</h6>
+                  <p>24/7 Full color in dark</p>
+                </div>
+              </div>
+              <div class="opt-card opt-res" data-res-name="Wireless Wi-Fi IP" data-multiplier="1.3">
+                <div class="opt-radio"></div>
+                <div class="opt-text">
+                  <h6>Wireless IP Cam</h6>
+                  <p>Zero wire hassle</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 4: Storage Duration Slider -->
+            <div class="form-group-title">
+              <i class="ri-hard-drive-line" style="color: var(--primary-cyan);"></i> 4. Hard Disk Storage Days
+            </div>
+            <div class="range-slider-wrapper">
+              <div class="range-header">
+                <span class="range-label" style="color: var(--text-secondary);">Backup Duration:</span>
+                <span class="range-val" id="storage-val">15 Days HDD</span>
+              </div>
+              <input type="range" id="storage-range" min="7" max="60" value="15" step="1">
+            </div>
+
+            <!-- Step 5: Add-ons -->
+            <div class="form-group-title">
+              <i class="ri-add-circle-line" style="color: var(--primary-cyan);"></i> 5. Add-on Equipment (Optional)
+            </div>
+            <div class="checkbox-grid">
+              <div class="check-item addon-check" data-addon-name="Biometric Scanner" data-addon-price="4500">
+                <i class="ri-fingerprint-line"></i> Biometric Machine (+₹4,500)
+              </div>
+              <div class="check-item addon-check" data-addon-name="Cash Counter Machine" data-addon-price="6500">
+                <i class="ri-money-dollar-box-line"></i> Cash Counter (+₹6,500)
+              </div>
+              <div class="check-item addon-check" data-addon-name="Burglar Alarm Siren" data-addon-price="3200">
+                <i class="ri-alarm-warning-line"></i> Siren Alarm (+₹3,200)
+              </div>
+              <div class="check-item addon-check" data-addon-name="Central PC Monitor Display" data-addon-price="7500">
+                <i class="ri-tv-line"></i> LED TV Monitor (+₹7,500)
+              </div>
+            </div>
+          </div>
+
+          <!-- Summary Output Column -->
+          <div class="estimator-summary-card">
+            <h4 class="summary-title"><i class="ri-file-text-line" style="color: var(--primary-cyan);"></i> Estimated Package Summary</h4>
+
+            <div class="summary-rows">
+              <div class="summary-row">
+                <span>Property:</span>
+                <span id="sum-property">Shop / Retail</span>
+              </div>
+              <div class="summary-row">
+                <span>Channels:</span>
+                <span id="sum-cameras">4 Channels</span>
+              </div>
+              <div class="summary-row">
+                <span>Resolution:</span>
+                <span id="sum-res">4K Ultra HD</span>
+              </div>
+              <div class="summary-row">
+                <span>HDD Backup:</span>
+                <span id="sum-storage">15 Days Storage</span>
+              </div>
+              <div class="summary-row">
+                <span>Add-ons:</span>
+                <span id="sum-addons">None</span>
+              </div>
+              <div class="summary-row">
+                <span>Installation & Cables:</span>
+                <span style="color: var(--accent-green);">INCLUDED</span>
+              </div>
+            </div>
+
+            <div class="total-price-box">
+              <div class="total-price-label">Estimated Total Price</div>
+              <div class="total-price-value" id="total-price-val">₹11,900</div>
+            </div>
+
+            <a id="whatsapp-estimate-btn" href="#" target="_blank" class="btn btn-whatsapp" style="width: 100%;">
+              <i class="ri-whatsapp-line"></i> Send Quote on WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI Features Section -->
+  <section id="features" class="section">
+    <div class="container">
+      <div class="text-center">
+        <div class="section-tag"><i class="ri-shield-star-line"></i> Advanced Technology</div>
+        <h2 class="section-title">Why Choose <span>SmartView CCTV</span>?</h2>
+        <p class="section-subtitle">
+          Built with military-grade encryption, AI motion detection, and seamless cloud connectivity for total peace of mind.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon"><i class="ri-smartphone-line"></i></div>
+          <h3 class="service-title">Live Mobile Streaming</h3>
+          <p class="service-desc">
+            View live 4K camera streams and playback video anytime from anywhere in the world using Android and iOS mobile apps.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon"><i class="ri-user-search-line"></i></div>
+          <h3 class="service-title">AI Human & Vehicle Analytics</h3>
+          <p class="service-desc">
+            Smart AI filters eliminate false alarms by identifying humans and vehicle license plates instead of animals or rain shadows.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon"><i class="ri-moon-clear-line"></i></div>
+          <h3 class="service-title">ColorHunter Full Night Vision</h3>
+          <p class="service-desc">
+            Equipped with warm F1.0 super-aperture lenses that capture vivid color video even in pitch-black night conditions.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Accordion Section -->
+  <section id="faq" class="section">
+    <div class="container">
+      <div class="text-center">
+        <div class="section-tag"><i class="ri-question-line"></i> FAQs</div>
+        <h2 class="section-title">Frequently Asked <span>Questions</span></h2>
+        <p class="section-subtitle">
+          Got questions regarding installation, warranty, or mobile setup? We've got answers.
+        </p>
+      </div>
+
+      <div class="faq-grid">
+        <div class="faq-item active">
+          <div class="faq-header">
+            <span>How long does CCTV camera installation take?</span>
+            <i class="ri-arrow-down-s-line"></i>
+          </div>
+          <div class="faq-content">
+            Standard 4 to 8 camera installations for retail shops and homes are completed within 4 to 6 hours by our expert technicians.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-header">
+            <span>Can I watch camera footage live on my mobile phone?</span>
+            <i class="ri-arrow-down-s-line"></i>
+          </div>
+          <div class="faq-content">
+            Yes! We configure your DVR/NVR with secure P2P cloud streaming so you can watch live video, receive push alerts, and review recording playback on your phone for free.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-header">
+            <span>What warranty do you provide on CCTV cameras?</span>
+            <i class="ri-arrow-down-s-line"></i>
+          </div>
+          <div class="faq-content">
+            All our CCTV cameras, DVRs, and hard disks come with a 2-Year Official Manufacturer Warranty along with 1-Year Free Service Support from Krisha Tech.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-header">
+            <span>Do your cameras record audio as well?</span>
+            <i class="ri-arrow-down-s-line"></i>
+          </div>
+          <div class="faq-content">
+            Yes, our HD Built-In Mic cameras record clear two-way audio along with 4K video, perfect for cash counters and office receptions.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact & Demo Request Section -->
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="contact-wrapper">
+        <div class="contact-info-box">
+          <div>
+            <div class="section-tag"><i class="ri-customer-service-2-line"></i> Get In Touch</div>
+            <h2 class="section-title">Schedule a <span>Free On-Site Survey</span></h2>
+            <p style="color: var(--text-secondary); margin-bottom: 2rem;">
+              Need expert assistance? Contact SmartView CCTV (powered by Krisha Tech) for site inspection, custom quotes, and technical support.
+            </p>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon"><i class="ri-phone-line"></i></div>
+            <div class="contact-text">
+              <h5>Call / WhatsApp Us</h5>
+              <p><a href="tel:+919028682001">+91 9028682001</a> / <a href="tel:+919970054328">+91 9970054328</a></p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon"><i class="ri-mail-line"></i></div>
+            <div class="contact-text">
+              <h5>Official Email</h5>
+              <p><a href="mailto:contact@krishatech.in">contact@krishatech.in</a> / <a href="mailto:smartviewcctv777@gmail.com">smartviewcctv777@gmail.com</a></p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon"><i class="ri-map-pin-line"></i></div>
+            <div class="contact-text">
+              <h5>Service Location</h5>
+              <p>Tasgaon / Sangli & Surrounding Districts, Maharashtra, India</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form-card">
+          <form id="cctv-contact-form">
+            <div class="form-group">
+              <label class="form-label" for="form-name">Your Full Name *</label>
+              <input type="text" id="form-name" class="form-control" placeholder="e.g. Rahul Sharma" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="form-phone">Mobile / WhatsApp Number *</label>
+              <input type="tel" id="form-phone" class="form-control" placeholder="e.g. +91 98765 43210" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="form-email">Email Address (Optional)</label>
+              <input type="email" id="form-email" class="form-control" placeholder="name@example.com">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="form-service">Required Service</label>
+              <select id="form-service" class="form-control">
+                <option value="CCTV Installation Quote">CCTV Camera Installation</option>
+                <option value="Biometric Attendance Machine">Biometric & Access Control</option>
+                <option value="Note Counting Machine">Cash / Note Counting Machine</option>
+                <option value="Burglar Alarm System">Smart Siren Alarm System</option>
+                <option value="Computer & Networking Repair">Computer Sales & Service</option>
+                <option value="CCTV Annual Maintenance AMC">CCTV AMC Maintenance</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="form-message">Site Details / Special Requirements</label>
+              <textarea id="form-message" class="form-control" placeholder="Mention number of rooms, property type, or special requests..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%;">
+              <i class="ri-send-plane-line"></i> Dispatch Inquiry via WhatsApp
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <div class="container">
+      <!-- Dedicated Krisha Tech Attribution Banner -->
+      <div class="krishatech-banner">
+        <div class="krishatech-info">
+          <h6>🚀 Designed & Operated by Krisha Tech (krishatech.in)</h6>
+          <p>We build modern, high-converting websites and software applications for growing businesses.</p>
+        </div>
+        <a href="https://krishatech.in" target="_blank" class="btn btn-outline" style="padding: 0.5rem 1.2rem; font-size: 0.85rem;">
+          Visit krishatech.in <i class="ri-external-link-line"></i>
+        </a>
+      </div>
+
+      <div class="footer-grid">
+        <div class="footer-about">
+          <a href="#" class="logo">
+            <div class="logo-icon"><i class="ri-webcam-line"></i></div>
+            <div class="logo-text">Smart<span>View</span></div>
+          </a>
+          <p>
+            Premier provider of 4K CCTV surveillance, biometrics, currency counter machines, and IT network infrastructure.
+          </p>
+        </div>
+
+        <div>
+          <h5 class="footer-heading">Quick Links</h5>
+          <ul class="footer-links">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#simulator">Live HUD Demo</a></li>
+            <li><a href="#services">Services & Catalog</a></li>
+            <li><a href="#estimator">Price Calculator</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h5 class="footer-heading">Our Services</h5>
+          <ul class="footer-links">
+            <li><a href="#services">4K IP CCTV Cameras</a></li>
+            <li><a href="#services">Biometric Scanners</a></li>
+            <li><a href="#services">Currency Counters</a></li>
+            <li><a href="#services">CCTV AMC Service</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h5 class="footer-heading">Contact Support</h5>
+          <ul class="footer-links">
+            <li><a href="tel:+919028682001"><i class="ri-phone-fill"></i> +91 9028682001</a></li>
+            <li><a href="tel:+919970054328"><i class="ri-phone-fill"></i> +91 9970054328</a></li>
+            <li><a href="mailto:contact@krishatech.in"><i class="ri-mail-fill"></i> contact@krishatech.in</a></li>
+            <li><a href="https://krishatech.in" target="_blank"><i class="ri-global-fill"></i> krishatech.in</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 SmartView CCTV Solutions. All Rights Reserved.</div>
+        <div>Operated & Managed by <strong>Krisha Tech</strong></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Quick Action Buttons -->
+  <div class="floating-actions">
+    <a href="tel:+919028682001" class="float-btn float-call" title="Call Sales Team">
+      <i class="ri-phone-line"></i>
+    </a>
+    <a href="https://wa.me/919028682001" target="_blank" class="float-btn float-wa" title="WhatsApp Chat">
+      <i class="ri-whatsapp-line"></i>
+    </a>
+  </div>
+
+  <!-- JavaScript Modules -->
+  <script src="js/particles.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
