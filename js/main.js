@@ -363,7 +363,7 @@ document.addEventListener('DOMContentLoaded', () => {
       `Please provide final formal quotation & installation availability.`;
 
     if (whatsappEstimateBtn) {
-      whatsappEstimateBtn.href = `https://wa.me/919028682001?text=${waMsg}`;
+      whatsappEstimateBtn.href = `https://wa.me/917083330914?text=${waMsg}`;
     }
   }
   updateEstimate();
@@ -472,7 +472,7 @@ document.addEventListener('DOMContentLoaded', () => {
         `• *Message:* ${message || 'No additional details.'}%0A%0A` +
         `Please call me back or send details.`;
 
-      window.open(`https://wa.me/919028682001?text=${waMsg}`, '_blank');
+      window.open(`https://wa.me/917083330914?text=${waMsg}`, '_blank');
       alert('Thank you! WhatsApp is opening to dispatch your inquiry.');
       contactForm.reset();
     });
