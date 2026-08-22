@@ -1,5 +1,5 @@
 /* ==========================================================================
-   SMARTVIEW CCTV & SECURITY SOLUTIONS - MAIN APPLICATION ENGINE
+   SMARTVIEW CCTV & SECURITY SOLUTIONS - FRESH INTERACTIVE ENGINE
    Operated & Developed by Krisha Tech (krishatech.in)
    ========================================================================== */
 
@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   'use strict';
 
   // ------------------------------------------------------------------------
-  // 1. PRELOADER ANIMATION LOGIC
+  // 1. PRELOADER & SYSTEM INITIALIZATION
   // ------------------------------------------------------------------------
   const preloader = document.getElementById('preloader');
   const preloaderBar = document.querySelector('.preloader-bar');
@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const statusLogs = [
     'Initializing Security Core...',
     'Scanning Camera Network...',
-    'Connecting AI Analytics...',
+    'Connecting AI Analytics Engine...',
     'Verifying Encryption Protocols...',
     'System Ready. Launching...'
   ];
@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let logIndex = 0;
 
   const preloaderInterval = setInterval(() => {
-    progress += Math.floor(Math.random() * 15) + 10;
+    progress += Math.floor(Math.random() * 15) + 12;
     if (progress > 100) progress = 100;
 
     if (preloaderBar) preloaderBar.style.width = `${progress}%`;
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (preloader) preloader.classList.add('loaded');
       }, 400);
     }
-  }, 120);
+  }, 100);
 
   // ------------------------------------------------------------------------
   // 2. THEME TOGGLER (DARK / LIGHT MODE)
@@ -97,13 +97,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Active Link Highlight on Scroll
+  // Active Navigation Link Highlight
   const sections = document.querySelectorAll('section[id]');
   window.addEventListener('scroll', () => {
     const scrollY = window.pageYOffset;
     sections.forEach(current => {
       const sectionHeight = current.offsetHeight;
-      const sectionTop = current.offsetTop - 120;
+      const sectionTop = current.offsetTop - 130;
       const sectionId = current.getAttribute('id');
       const navLink = document.querySelector(`.nav-menu a[href*=${sectionId}]`);
 
@@ -118,7 +118,31 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ------------------------------------------------------------------------
-  // 4. LIVE CCTV SIMULATOR DEMO ENGINE
+  // 4. 3D TILT EFFECT FOR CARDS
+  // ------------------------------------------------------------------------
+  const tiltCards = document.querySelectorAll('.service-card, .stat-card, .hero-card-frame');
+  tiltCards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      
+      const rotateX = (y - centerY) / 20;
+      const rotateY = (centerX - x) / 20;
+
+      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px)`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
+    });
+  });
+
+  // ------------------------------------------------------------------------
+  // 5. LIVE CCTV SIMULATOR ENGINE
   // ------------------------------------------------------------------------
   const simViewport = document.getElementById('sim-viewport');
   const simFeedBtns = document.querySelectorAll('.sim-feed-btn');
@@ -129,12 +153,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const feeds = {
     cam1: {
-      name: 'CAM 01 - MAIN ENTRANCE [4K]',
+      name: 'CAM 01 - MAIN ENTRANCE [4K UHD]',
       bg: 'url("https://images.unsplash.com/photo-1557597774-9d273605dfa9?q=80&w=1200&auto=format&fit=crop")',
       aiTop: '35%', aiLeft: '45%', label: 'TARGET: HUMAN [99.8%]'
     },
     cam2: {
-      name: 'CAM 02 - WAREHOUSE ALLEY [1080P]',
+      name: 'CAM 02 - WAREHOUSE VAULT [1080P]',
       bg: 'url("https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1200&auto=format&fit=crop")',
       aiTop: '40%', aiLeft: '25%', label: 'TARGET: VEHICLE [98.4%]'
     },
@@ -201,7 +225,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ------------------------------------------------------------------------
-  // 5. INTERACTIVE PACKAGE & PRICE ESTIMATOR CALCULATOR
+  // 6. INTERACTIVE PACKAGE & PRICE ESTIMATOR CALCULATOR
   // ------------------------------------------------------------------------
   const propertyCards = document.querySelectorAll('.opt-property');
   const resolutionCards = document.querySelectorAll('.opt-res');
@@ -287,14 +311,32 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  function animateNumberCount(targetVal) {
+    if (!totalPriceVal) return;
+    const currentVal = parseInt(totalPriceVal.textContent.replace(/[^0-9]/g, '')) || 0;
+    const duration = 500;
+    const stepTime = 20;
+    const steps = duration / stepTime;
+    const increment = (targetVal - currentVal) / steps;
+    let current = currentVal;
+
+    const timer = setInterval(() => {
+      current += increment;
+      if ((increment > 0 && current >= targetVal) || (increment < 0 && current <= targetVal)) {
+        totalPriceVal.textContent = `₹${targetVal.toLocaleString('en-IN')}`;
+        clearInterval(timer);
+      } else {
+        totalPriceVal.textContent = `₹${Math.round(current).toLocaleString('en-IN')}`;
+      }
+    }, stepTime);
+  }
+
   function updateEstimate() {
-    // Calculation: Base (DVR/NVR + Power Supply) + (Cameras * Price * Multiplier) + Storage + Addons
     const baseHardwarePrice = 3500;
     const cameraTotal = estimatorState.cameras * 1400 * estimatorState.resPriceMultiplier;
     const addonsTotal = estimatorState.addons.reduce((sum, item) => sum + item.price, 0);
     const grandTotal = Math.round(baseHardwarePrice + cameraTotal + estimatorState.storagePrice + addonsTotal);
 
-    // Update UI Summary
     if (summaryProp) summaryProp.textContent = estimatorState.property;
     if (summaryCam) summaryCam.textContent = `${estimatorState.cameras} Channels`;
     if (summaryRes) summaryRes.textContent = estimatorState.resolution;
@@ -304,23 +346,21 @@ document.addEventListener('DOMContentLoaded', () => {
         ? estimatorState.addons.map(a => a.name).join(', ') 
         : 'None';
     }
-    if (totalPriceVal) {
-      totalPriceVal.textContent = `₹${grandTotal.toLocaleString('en-IN')}`;
-    }
 
-    // Build Pre-filled WhatsApp Link
+    animateNumberCount(grandTotal);
+
     const addonListStr = estimatorState.addons.length > 0 
       ? estimatorState.addons.map(a => a.name).join(', ') 
       : 'None';
 
-    const waMsg = `Hello SmartView CCTV (Krisha Tech)! 👋%0A%0AI would like a quotation for a CCTV installation configured on your website:%0A` +
+    const waMsg = `Hello SmartView CCTV (Krisha Tech)! 👋%0A%0AI configured a custom CCTV quotation on your website:%0A` +
       `• Property Type: ${estimatorState.property}%0A` +
       `• Camera Quantity: ${estimatorState.cameras} Cameras%0A` +
       `• Optics / Res: ${estimatorState.resolution}%0A` +
       `• HDD Backup: ${estimatorState.storageDays} Days%0A` +
       `• Add-on Equipment: ${addonListStr}%0A` +
       `• Estimated Price: ₹${grandTotal.toLocaleString('en-IN')}%0A%0A` +
-      `Please provide the final formal invoice & installation availability.`;
+      `Please provide final formal quotation & installation availability.`;
 
     if (whatsappEstimateBtn) {
       whatsappEstimateBtn.href = `https://wa.me/919028682001?text=${waMsg}`;
@@ -329,7 +369,7 @@ document.addEventListener('DOMContentLoaded', () => {
   updateEstimate();
 
   // ------------------------------------------------------------------------
-  // 6. SERVICES / CATALOG SHOWCASE CATEGORY FILTER
+  // 7. CATALOG SHOWCASE CATEGORY FILTER
   // ------------------------------------------------------------------------
   const filterBtns = document.querySelectorAll('.filter-btn');
   const serviceCards = document.querySelectorAll('.service-card');
@@ -354,7 +394,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ------------------------------------------------------------------------
-  // 7. ANIMATED NUMBERS COUNTER
+  // 8. ANIMATED NUMBERS COUNTER (HIGH TECH NUMERALS)
   // ------------------------------------------------------------------------
   const statNumbers = document.querySelectorAll('.stat-number');
   let counted = false;
@@ -387,12 +427,12 @@ document.addEventListener('DOMContentLoaded', () => {
         runCounters();
         counted = true;
       }
-    }, { threshold: 0.4 });
+    }, { threshold: 0.3 });
     observer.observe(statsSection);
   }
 
   // ------------------------------------------------------------------------
-  // 8. FAQ ACCORDION LOGIC
+  // 9. FAQ ACCORDION LOGIC
   // ------------------------------------------------------------------------
   const faqItems = document.querySelectorAll('.faq-item');
   faqItems.forEach(item => {
@@ -405,7 +445,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ------------------------------------------------------------------------
-  // 9. CONTACT FORM & WHATSAPP DIRECT DISPATCH
+  // 10. CONTACT FORM & DIRECT WHATSAPP DISPATCH
   // ------------------------------------------------------------------------
   const contactForm = document.getElementById('cctv-contact-form');
   if (contactForm) {
@@ -432,25 +472,9 @@ document.addEventListener('DOMContentLoaded', () => {
         `• *Message:* ${message || 'No additional details.'}%0A%0A` +
         `Please call me back or send details.`;
 
-      // Open WhatsApp chat
       window.open(`https://wa.me/919028682001?text=${waMsg}`, '_blank');
-      
-      // Inline visual feedback
-      alert('Thank you! Your inquiry has been generated. WhatsApp is opening to send your details.');
+      alert('Thank you! WhatsApp is opening to dispatch your inquiry.');
       contactForm.reset();
     });
   }
-
-  // Smooth Scroll Anchor Links
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      const targetId = this.getAttribute('href');
-      if (targetId === '#') return;
-      const targetElement = document.querySelector(targetId);
-      if (targetElement) {
-        e.preventDefault();
-        targetElement.scrollIntoView({ behavior: 'smooth' });
-      }
-    });
-  });
 });
