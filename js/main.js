@@ -1,5 +1,5 @@
 /* ==========================================================================
-   SMARTVIEW CCTV & SECURITY SOLUTIONS - FRESH INTERACTIVE ENGINE
+   SECUREVISION CCTV & SECURITY SOLUTIONS - INTERACTIVE SALES DEMO ENGINE
    Operated & Developed by Krisha Tech (krishatech.in)
    ========================================================================== */
 
@@ -44,22 +44,26 @@ document.addEventListener('DOMContentLoaded', () => {
   }, 100);
 
   // ------------------------------------------------------------------------
-  // 2. THEME TOGGLER (DARK / LIGHT MODE)
+  // 2. THEME TOGGLER (DEFAULT LIGHT MODE)
   // ------------------------------------------------------------------------
   const themeToggleBtn = document.getElementById('theme-toggle');
-  const savedTheme = localStorage.getItem('smartview-theme') || 'dark';
+  const savedTheme = localStorage.getItem('smartview-theme') || 'light';
   document.documentElement.setAttribute('data-theme', savedTheme);
 
   if (themeToggleBtn) {
+    const icon = themeToggleBtn.querySelector('i');
+    if (icon) {
+      icon.className = savedTheme === 'light' ? 'ri-moon-clear-line' : 'ri-sun-line';
+    }
+
     themeToggleBtn.addEventListener('click', () => {
       const currentTheme = document.documentElement.getAttribute('data-theme');
       const newTheme = currentTheme === 'light' ? 'dark' : 'light';
       document.documentElement.setAttribute('data-theme', newTheme);
       localStorage.setItem('smartview-theme', newTheme);
       
-      const icon = themeToggleBtn.querySelector('i');
       if (icon) {
-        icon.className = newTheme === 'light' ? 'ri-sun-line' : 'ri-moon-clear-line';
+        icon.className = newTheme === 'light' ? 'ri-moon-clear-line' : 'ri-sun-line';
       }
     });
   }
@@ -71,13 +75,20 @@ document.addEventListener('DOMContentLoaded', () => {
   const mobileToggle = document.querySelector('.mobile-nav-toggle');
   const mobileDrawer = document.querySelector('.mobile-drawer');
 
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 40) {
-      header.classList.add('scrolled');
+  const topDemoBar = document.querySelector('.top-demo-bar');
+
+  function handleHeaderScroll() {
+    const topBarHeight = topDemoBar ? topDemoBar.offsetHeight : 35;
+    if (window.scrollY > topBarHeight) {
+      header.classList.add('scrolled', 'header-fixed');
     } else {
-      header.classList.remove('scrolled');
+      header.classList.remove('scrolled', 'header-fixed');
     }
-  });
+  }
+
+  window.addEventListener('scroll', handleHeaderScroll);
+  window.addEventListener('resize', handleHeaderScroll);
+  handleHeaderScroll();
 
   if (mobileToggle && mobileDrawer) {
     mobileToggle.addEventListener('click', () => {
@@ -118,7 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ------------------------------------------------------------------------
-  // 4. 3D TILT EFFECT FOR CARDS
+  // 4. 3D TILT EFFECT FOR CARDS (DISABLED ON TOUCH/MOBILE)
   // ------------------------------------------------------------------------
   const tiltCards = document.querySelectorAll('.service-card, .stat-card, .hero-card-frame');
   tiltCards.forEach(card => {
@@ -354,7 +365,7 @@ document.addEventListener('DOMContentLoaded', () => {
       ? estimatorState.addons.map(a => a.name).join(', ') 
       : 'None';
 
-    const waMsg = `Hello SmartView CCTV (Krisha Tech)! 👋%0A%0AI configured a custom CCTV quotation on your website:%0A` +
+    const waMsg = `Hello SecureVision CCTV (Krisha Tech)! 👋%0A%0AI configured a custom CCTV quotation on your website:%0A` +
       `• Property Type: ${estimatorState.property}%0A` +
       `• Camera Quantity: ${estimatorState.cameras} Cameras%0A` +
       `• Optics / Res: ${estimatorState.resolution}%0A` +
@@ -460,11 +471,11 @@ document.addEventListener('DOMContentLoaded', () => {
       const message = document.getElementById('form-message').value.trim();
 
       if (!name || !phone) {
-        alert('Please provide your name and phone number.');
+        alert('Please enter your name and phone number.');
         return;
       }
 
-      const waMsg = `Hello SmartView CCTV (Krisha Tech)! 👋%0A%0A` +
+      const waMsg = `Hello SecureVision CCTV (Krisha Tech)! 👋%0A%0A` +
         `*New Inquiry from Website:*%0A` +
         `• *Name:* ${name}%0A` +
         `• *Phone:* ${phone}%0A` +
@@ -474,8 +485,42 @@ document.addEventListener('DOMContentLoaded', () => {
         `Please call me back or send details.`;
 
       window.open(`https://wa.me/917083330914?text=${waMsg}`, '_blank');
-      alert('Thank you! WhatsApp is opening to dispatch your inquiry.');
       contactForm.reset();
+    });
+  }
+
+  // ------------------------------------------------------------------------
+  // 11. SCROLL-TO-BOTTOM SALES LEAD DEMO MODAL POPUP
+  // ------------------------------------------------------------------------
+  const demoModal = document.getElementById('demo-lead-modal');
+  const closeDemoModalBtn = document.getElementById('close-demo-modal');
+  let modalShown = false;
+
+  function checkScrollForModal() {
+    if (modalShown) return;
+
+    const scrollPosition = window.innerHeight + window.scrollY;
+    const threshold = document.documentElement.scrollHeight - 380; // Triggers when scrolling near bottom
+
+    if (scrollPosition >= threshold) {
+      if (demoModal) {
+        demoModal.classList.add('active');
+        modalShown = true;
+      }
+    }
+  }
+
+  window.addEventListener('scroll', checkScrollForModal);
+
+  if (closeDemoModalBtn && demoModal) {
+    closeDemoModalBtn.addEventListener('click', () => {
+      demoModal.classList.remove('active');
+    });
+
+    demoModal.addEventListener('click', (e) => {
+      if (e.target === demoModal) {
+        demoModal.classList.remove('active');
+      }
     });
   }
 });
