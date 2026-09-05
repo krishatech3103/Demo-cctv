@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const themeMeta = document.querySelector('meta[name="theme-color"]');
   const menuButton = document.getElementById('menu-toggle');
   const mobileMenu = document.getElementById('mobile-menu');
+  const menuBackdrop = document.getElementById('menu-backdrop');
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   const setTheme = (theme) => {
@@ -23,10 +24,21 @@ document.addEventListener('DOMContentLoaded', () => {
   setTheme(savedTheme === 'dark' ? 'dark' : 'light');
   themeButton?.addEventListener('click', () => setTheme(root.dataset.theme === 'dark' ? 'light' : 'dark'));
 
+  const setMobileMenuPosition = () => {
+    if (!header) return;
+    const visibleHeaderBottom = Math.max(0, Math.round(header.getBoundingClientRect().bottom));
+    root.style.setProperty('--mobile-menu-top', `${visibleHeaderBottom}px`);
+  };
+
   const closeMenu = () => {
     if (!mobileMenu || !menuButton) return;
     mobileMenu.classList.remove('open');
     mobileMenu.setAttribute('aria-hidden', 'true');
+    menuBackdrop?.classList.remove('open');
+    if (menuBackdrop) {
+      menuBackdrop.hidden = true;
+      menuBackdrop.setAttribute('aria-hidden', 'true');
+    }
     menuButton.setAttribute('aria-expanded', 'false');
     menuButton.setAttribute('aria-label', 'Open navigation');
     menuButton.querySelector('i').className = 'ri-menu-3-line';
@@ -35,8 +47,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   menuButton?.addEventListener('click', () => {
     const willOpen = !mobileMenu.classList.contains('open');
+    setMobileMenuPosition();
     mobileMenu.classList.toggle('open', willOpen);
     mobileMenu.setAttribute('aria-hidden', String(!willOpen));
+    if (menuBackdrop) {
+      menuBackdrop.hidden = !willOpen;
+      menuBackdrop.setAttribute('aria-hidden', String(!willOpen));
+      if (willOpen) requestAnimationFrame(() => menuBackdrop.classList.add('open'));
+      else menuBackdrop.classList.remove('open');
+    }
     menuButton.setAttribute('aria-expanded', String(willOpen));
     menuButton.setAttribute('aria-label', willOpen ? 'Close navigation' : 'Open navigation');
     menuButton.querySelector('i').className = willOpen ? 'ri-close-line' : 'ri-menu-3-line';
@@ -44,10 +63,18 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   mobileMenu?.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
+  menuBackdrop?.addEventListener('click', closeMenu);
+  document.addEventListener('pointerdown', (event) => {
+    if (!mobileMenu?.classList.contains('open')) return;
+    if (!mobileMenu.contains(event.target) && !menuButton?.contains(event.target)) closeMenu();
+  });
   window.addEventListener('resize', () => { if (window.innerWidth > 860) closeMenu(); });
   document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeMenu(); });
 
-  const onScroll = () => header?.classList.toggle('scrolled', window.scrollY > 12);
+  const onScroll = () => {
+    header?.classList.toggle('scrolled', window.scrollY > 12);
+    setMobileMenuPosition();
+  };
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
